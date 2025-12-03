@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../models/book.dart';
+
+import '../../Models/book.dart';
 import 'home_cell.dart';
 import '../../Screens/Details/details_screen.dart';
-import '../../Screens/LibraryScreen/library_screen.dart';
+import '../../Screens/SignUpScreen/signup_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,8 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+<<<<<<< HEAD
+=======
       appBar: AppBar(
         elevation: 0,
         flexibleSpace: Container(
@@ -53,6 +56,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+>>>>>>> main
       body: ListView.builder(
         itemCount: books.length,
         itemBuilder: (context, index) {
@@ -67,6 +71,14 @@ class HomeScreen extends StatelessWidget {
             child: HomeCell(b),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.pushNamed(context, SignUpScreen.routeName);
+        },
+        icon: const Icon(Icons.person_add),
+        label: const Text('Sign Up'),
+        tooltip: 'Go to Sign Up',
       ),
     );
   }

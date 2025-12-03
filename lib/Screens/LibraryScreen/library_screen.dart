@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-import '../../models/book.dart';
+import '../../Models/book.dart';
 import 'library_cell.dart';
 import '../Details/details_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
   final List<Book> books;
-  const LibraryScreen({Key? key, required this.books}) : super(key: key);
+  const LibraryScreen({super.key, required this.books});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Library')),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        title: const Text('Library'),
+      ),
       body: GridView.builder(
         padding: const EdgeInsets.all(8),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

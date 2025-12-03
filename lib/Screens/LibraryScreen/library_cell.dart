@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../models/book.dart';
+import '../../Models/book.dart';
 
 class LibraryCell extends StatelessWidget {
   final Book book;
-  const LibraryCell({Key? key, required this.book}) : super(key: key);
+  const LibraryCell({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +58,27 @@ class LibraryCell extends StatelessWidget {
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+<<<<<<< HEAD
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall
+                  ?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              "${book.price} TND",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+            ),
+=======
               style: const TextStyle(
                 color: Color(0xFF1B5E20),
                 fontSize: 15,
@@ -83,6 +104,7 @@ class LibraryCell extends StatelessWidget {
                 ),
               ),
             ),
+>>>>>>> main
           ],
         ),
       ),
