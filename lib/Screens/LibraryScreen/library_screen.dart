@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import '../../models/book.dart';
+import 'library_cell.dart';
+import '../Details/details_screen.dart';
+
+class LibraryScreen extends StatelessWidget {
+  final List<Book> books;
+  const LibraryScreen({Key? key, required this.books}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Library')),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(8),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          childAspectRatio: 0.58,
+        ),
+        itemCount: books.length,
+        itemBuilder: (context, index) {
+          final book = books[index];
+          return GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => DetailsScreen(book: book)),
+            ),
+            child: LibraryCell(book: book),
+          );
+        },
+      ),
+    );
+  }
+}
